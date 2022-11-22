@@ -12,6 +12,17 @@ class BlogCategory(models.Model):
         verbose_name_plural = 'Категорії блогу'
 
 
+class Tag(models.Model):
+    name = models.CharField(verbose_name='Тег', max_length=255)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тег'
+        verbose_name_plural = 'Теги'
+
+
 class Article(models.Model):
     category = models.ForeignKey(to=BlogCategory, verbose_name='Категорія', on_delete=models.CASCADE)
     title = models.CharField(verbose_name='Назва', max_length=255)
@@ -20,6 +31,7 @@ class Article(models.Model):
     publish_date = models.DateTimeField(verbose_name='Дата публікації')
     updatet_at = models.DateTimeField(verbose_name='Дата зміни', auto_now=True)
     created_at = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
+    tag = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.title
