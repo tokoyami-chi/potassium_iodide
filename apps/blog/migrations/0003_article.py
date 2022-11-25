@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('text_preview', models.TextField(blank=True, null=True, verbose_name='Превью тексту')),
                 ('text', models.TextField(verbose_name='Текст')),
                 ('publish_date', models.DateTimeField(verbose_name='Дата публікації')),
-                ('updatet_at', models.DateTimeField(auto_now=True, verbose_name='Дата зміни')),
+                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Дата зміни')),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата створення')),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.blogcategory')),
             ],
