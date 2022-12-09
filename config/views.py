@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse('Вітаю! Це головна сторінка')
+    return render(request, 'index.html')
